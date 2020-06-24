@@ -1,0 +1,69 @@
+/*
+Font  Family  
+Generici
+Navigazione
+Titoli
+Liste
+*/
+/* 
+    Created on : 24 giu 2020, 10:42:54
+    Author     : michelemartinello
+*/
+/*#### Font family ####*/
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+/*#### Generici ####*/
+    html {
+     font-size: 16px; /* Font base */
+     scroll-behavior: smooth;
+    }
+    
+/*#### Navigazione ####*/
+    nav a {
+        font-family: 'Oswald', 'Trebuchet MS', sans-serif;
+        text-decoration: none;
+        text-transform: uppercase;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        color:#fff;
+    }
+    
+        /* mouse over link */
+        nav a:hover {
+        color:  rgba(22,140,186,1);
+        background-color: #fff;
+        }
+    
+    nav ul {
+    padding-left: 0;
+    background-color: rgba(22,140,186,1);
+    padding: 1.2rem;
+    margin: 0;
+    color:#fff;
+    }
+
+    nav li {
+        display: inline-block;
+    }
+    
+    /*#### Titoli ####*/
+    h1, h2, h3, h4, h5, h6{
+        font-family: 'Oswald', 'Trebuchet MS', sans-serif;
+    }
+    
+    /*#### Liste ####*/
+    
+    dl{
+
+    }    
+    dt, dd{
+         display: inline;
+    }
+    dd:after {
+      content: '';
+      display: block;
+    }
+    dd{
+        color:red;
+    }
+    
