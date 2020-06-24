@@ -133,6 +133,12 @@ img{
       content: ' ';
       display: block;
     }
+    
+    dt{
+          min-width: 150px;
+          display: inline-block;
+    }
+
 
     @media only screen and (min-width: 600px) {
   #menu .main-menu {
@@ -140,8 +146,7 @@ img{
     height: 50px;
   }
 
-  #toggle-menu,
-  #menu label.drop-icon {
+  #toggle-menu {
     display: none;
   }
 
@@ -155,8 +160,9 @@ img{
   }
   
   /*#### immagini ####*/
-  img{
-    width: 30%;
+        img{
+    width: 40%;
     }
  
+    
 }
