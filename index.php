@@ -22,10 +22,18 @@ function titoloh2($contenuto){
     return $stampa;
 }
 // genera una section <section id='$id'>
-function section($contenuto,$id){
-    $stampa="<section id='$id'>".$contenuto."</section>";
+function section($contenuto,$id,$array=NULL){
+        // se passo $param['title'], un titolo, lo stampo altrimenti no
+        if(array_key_exists('title',$array)&&($array['title']!='')){
+        $titolo=$array['title'];
+        $sectiontitle=titoloh2($titolo);
+        }else{
+        $sectiontitle='';
+        }
+    $stampa="<section id='$id'>".$sectiontitle.$contenuto."</section>";
     return $stampa;
 }
+
 //genera un immagine <img src='$percorso'  alt='$alt' width='$width'>";    
 function immagine($percorso,$alt,$width){
     $stampa="<img src='$percorso'  alt='$alt' width='$width'>";                   
@@ -86,8 +94,8 @@ function element($tipo,$contenuto,$array=NULL){
     }
     if($tipo=='sezione'){
         if(array_key_exists('id',$array)&&($array['id']!='')){
-            $valoredellachiave=$array['id'];
-            $result= section($contenuto,$valoredellachiave);
+            $id=$array['id'];
+            $result= section($contenuto,$id,$array);
         }else{
             $result="<p>Ti sei dimenticato l'id</p>";
         }
@@ -154,7 +162,7 @@ $anagrafica=array(
             echo element('img',NULL,array('url'=>'img/baffi.jpeg','alt'=>'il mio testo alternativo','width'=>'40%'));
 
             // questo funziona
-            echo element('sezione', 'contenuto della sezione', array('id'=>'anagrafica'));
+            echo element('sezione', 'contenuto della sezione', array('id'=>'anagrafica','title'=>'Titolo della sezione'));
             
             //provo a rimuovere il valore di ['id'], nell'array rimane solo la width
             $param['id']=null;
