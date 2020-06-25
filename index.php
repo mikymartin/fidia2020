@@ -152,10 +152,10 @@ $anagrafica=array(
             $param=array();
             echo element('titolo1','Michele Martinello');
             echo element('img',NULL,array('url'=>'img/baffi.jpeg','alt'=>'il mio testo alternativo','width'=>'40%'));
-            $param['id']="anagrafica";
-            $param['width']="300px";
+
             // questo funziona
-            echo element('sezione', 'contenuto della sezione', $param);
+            echo element('sezione', 'contenuto della sezione', array('id'=>'anagrafica'));
+            
             //provo a rimuovere il valore di ['id'], nell'array rimane solo la width
             $param['id']=null;
             // non trovando id non stamperà la sezione
