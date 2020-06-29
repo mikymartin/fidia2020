@@ -3,14 +3,14 @@
 $link = mysqli_connect("192.168.64.2", "fidia", "12345", "test");
 
 if (!$link) {
-    echo "Error: Unable to connect to MySQL." . PHP_EOL;
-    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+    echo "Error: Unable to connect to MySQL. <br>";
+    echo "Debugging errno: " . mysqli_connect_errno() . "<br>";
+    echo "Debugging error: " . mysqli_connect_error() . "<br>";
     exit;
 }
 
-echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
-echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
+echo "Success: A proper connection to MySQL was made! The my_db database is great.<br>";
+echo "Host information: " . mysqli_get_host_info($link) . "<br>";
 
 mysqli_close($link);
 
