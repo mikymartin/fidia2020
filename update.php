@@ -10,6 +10,10 @@ $id=0;
 if(isset($_GET['id'])&&($_GET['id']!='')){
     $id=$_GET['id'];
 }
+if(isset($_POST['id'])&&($_POST['id']!='')){
+    $id=$_POST['id'];
+}
+
 
 if(isset($_POST['submit'])&&($_POST['submit']=='modifica')){
     $submit=$_POST['submit'];
@@ -59,22 +63,24 @@ $result=mysqli_query($link,$query);/*i risultati dell'interrogazione
 variabile $result*/
 }
 
+while($row = mysqli_fetch_assoc($result)){
+    $id=$row['id'];
+    $title=$row['title'];
+    $content=$row['content'];
+}
+
 
 // verifichiamo se l'operazione chiesta è un inserimento e se i campi title e content sono popolati
 
-if(($submit=='modifica')&&($title!='')&&($content!='')){
-    $query="UPDATE  post SET title='$title', content='$content' WHERE id=";
+if(($submit=='modifica')&&($title!='')&&($content!='')&&($id!='')){
+    $query="UPDATE  post SET title='".$_POST['title']."', content='".$_POST['content']."' WHERE id=".$_POST['id'];
     echo $query;
     
-    //$result=mysqli_query($link,$query);
+    $result=mysqli_query($link,$query);
     
     $messaggio="<p class='evidenzia'>Modifica riuscita</p>";
 }
 
-while($row = mysqli_fetch_assoc($result)){
-    $title=$row['title'];
-    $content=$row['content'];
-}
 
 mysqli_close($link);
 
@@ -89,6 +95,7 @@ mysqli_close($link);
     </head>
     <body id="main">
         <form enctype="multipart/form-data" action="update.php" method="POST">
+            <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
             <label for="title">Titolo:</label>
             <input type="text" id="title" name="title" placeholder="Metti il titolo al tuo post" value="<?php echo $title ?>">
              
